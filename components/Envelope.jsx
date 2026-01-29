@@ -44,7 +44,6 @@ export default function Envelope({ onOpen }) {
 
         {/* Main Text Below */}
         <div className="absolute -bottom-24 text-center">
-            <h1 className="text-3xl font-cursive text-cream mb-4">A special message is waiting for you...</h1>
             <button 
                 onClick={(e) => { e.stopPropagation(); handleOpen(); }}
                 className="bg-red-accent hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105"

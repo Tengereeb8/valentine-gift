@@ -1,14 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Gift, Utensils, Ticket, Music } from "lucide-react";
-
-const rewards = [
-  { id: 1, title: "Movie Night", icon: <Ticket className="w-8 h-8 text-gold-accent" />, desc: "One movie of your choice" },
-  { id: 2, title: "Dinner Date", icon: <Utensils className="w-8 h-8 text-gold-accent" />, desc: "Chef's special dinner" },
-  { id: 3, title: "Playlist Control", icon: <Music className="w-8 h-8 text-gold-accent" />, desc: "DJ for the road trip" },
-  { id: 4, title: "Surprise Gift", icon: <Gift className="w-8 h-8 text-gold-accent" />, desc: "Something special..." },
-];
+import Flower from "./Flower";
 
 export default function RewardsModal({ onClose }) {
   return (
@@ -17,31 +10,46 @@ export default function RewardsModal({ onClose }) {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}
-        className="bg-burgundy border-2 border-gold-accent rounded-lg p-6 max-w-2xl w-full text-center relative shadow-2xl"
+        className="bg-burgundy border-2 border-gold-accent rounded-lg p-8 max-w-xl w-full text-center relative shadow-2xl overflow-hidden"
       >
-        <button onClick={onClose} className="absolute top-4 right-4 text-cream hover:text-gold-accent">✕</button>
+        <button onClick={onClose} className="absolute top-4 right-4 text-cream hover:text-gold-accent z-30 text-xl font-bold">✕</button>
         
-        <h2 className="text-3xl font-cursive text-gold-accent mb-2">Surprise!</h2>
-        <p className="text-cream mb-6">You've Unlocked Your Love Rewards</p>
+        {/* Decorative background elements */}
+        <div className="absolute top-0 left-0 w-full h-2 bg-linear-to-r from-gold-accent/0 via-gold-accent to-gold-accent/0 opacity-50" />
+        
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ delay: 0.3 }}
+        >
+          <h2 className="text-4xl font-cursive text-gold-accent mb-2">A Special Bloom</h2>
+          <p className="text-cream text-lg mb-8 italic">Where love grows, life blossoms...</p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {rewards.map((r) => (
-            <div key={r.id} className="bg-black/40 p-4 rounded-lg flex items-center space-x-4 hover:bg-black/60 transition-colors border border-white/10">
-              <div className="bg-white/10 p-2 rounded-full">{r.icon}</div>
-              <div className="text-left">
-                <h3 className="text-gold-accent font-bold">{r.title}</h3>
-                <p className="text-xs text-gray-300">{r.desc}</p>
-              </div>
-              <button className="ml-auto bg-gold-accent text-burgundy text-xs font-bold px-3 py-1 rounded hover:bg-yellow-500">
-                Select
-              </button>
-            </div>
-          ))}
+        <div className="flex justify-center items-center py-4">
+           <Flower />
         </div>
 
-        <button onClick={onClose} className="mt-8 bg-red-accent hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full shadow-lg">
-          Claim Your Gift Book
-        </button>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 3.5, duration: 0.8 }}
+          className="mt-8 space-y-4"
+        >
+          <div className="text-3xl font-cursive text-gold-accent">
+            Happy Valentine's Day! 🌹
+          </div>
+          <p className="text-cream/80 max-w-sm mx-auto leading-relaxed">
+            I saved this rose just for you. Like this flower, my love for you grows more beautiful every day.
+          </p>
+          
+          <button 
+            onClick={onClose} 
+            className="mt-6 bg-red-accent hover:bg-red-700 text-white font-bold py-3 px-10 rounded-full shadow-lg transition-all hover:scale-105 active:scale-95"
+          >
+            With All My Love
+          </button>
+        </motion.div>
       </motion.div>
     </div>
   );
