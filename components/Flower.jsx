@@ -12,7 +12,9 @@ export default function Flower() {
         style={{ overflow: "visible" }}
       >
         <motion.path
-          d="M50 200 C50 150, 40 100, 50 50"
+          // Changed end point from 50 to 30 to make it taller
+          // Change the final coordinate from 30 back toward 60
+          d="M50 200 C50 150, 40 100, 50 65"
           fill="transparent"
           stroke="#4ade80"
           strokeWidth="4"
@@ -22,18 +24,18 @@ export default function Flower() {
           transition={{ duration: 1.5, ease: "easeInOut" }}
         />
         
-        {/* Leaf 1 */}
+        {/* Leaf 1 - Positioned slightly lower */}
         <motion.path
-          d="M50 140 Q30 130, 20 150 Q35 160, 50 140"
+          d="M50 160 Q30 150, 20 170 Q35 180, 50 160"
           fill="#22c55e"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.5 }}
         />
         
-        {/* Leaf 2 */}
+        {/* Leaf 2 - Positioned slightly lower */}
         <motion.path
-          d="M50 100 Q70 90, 80 110 Q65 120, 50 100"
+          d="M50 120 Q70 110, 80 130 Q65 140, 50 120"
           fill="#22c55e"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -43,7 +45,9 @@ export default function Flower() {
 
       {/* Blossom */}
       <motion.div
-        className="relative z-10"
+        // Added -translate-y-24 to lift the bloom up away from the leaves
+        // Change -translate-y-24 to a smaller value like -translate-y-16
+        className="relative z-10 -translate-y-12"
         initial={{ scale: 0, rotate: -45 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ delay: 1.5, duration: 1, type: "spring", stiffness: 100 }}
@@ -53,14 +57,15 @@ export default function Flower() {
           {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
             <motion.div
               key={i}
-              className="absolute top-1/2 left-1/2 w-12 h-16 bg-red-accent rounded-full border border-burgundy/20 shadow-lg"
+              className="absolute top-1/2 left-1/2 w-12 h-16 bg-red-500 rounded-full border border-red-700/20 shadow-lg"
               style={{
                 originX: "50%",
                 originY: "100%",
                 x: "-50%",
                 y: "-100%",
+                rotate: angle // Set initial rotation here
               }}
-              initial={{ rotate: angle, scale: 0 }}
+              initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{
                 delay: 1.8 + i * 0.1,

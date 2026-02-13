@@ -48,7 +48,7 @@ export default function Envelope({ onOpen }) {
                 onClick={(e) => { e.stopPropagation(); handleOpen(); }}
                 className="bg-red-accent hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105"
             >
-                Open Your Heart
+                Open My Heart
             </button>
             <p className="mt-4 text-xs text-stone-300">Every moment with you is a gift</p>
         </div>
