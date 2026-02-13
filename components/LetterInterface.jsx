@@ -60,9 +60,9 @@ export default function LetterInterface({ onClaim }) {
         
         {/* Mock Polaroids */}
         {[
-            { id: 1, caption: "C", color: "bg-blue-200", image: '/h1.jpeg' }, 
-            { id: 2, caption: "Crown Naraa", color: "bg-orange-200", image: '/h2c.jpeg' },
-            { id: 3, caption: "Our Wedding", color: "bg-indigo-200", image: '/h3.jpeg' }
+            { id: 1, caption: "Cute Khongoroo", color: "bg-blue-200", image: '/h1.jpeg' }, 
+            { id: 2, caption: "Beautiful Khongoroo", color: "bg-orange-200", image: '/h2c.jpeg' },
+            { id: 3, caption: "Gorgeous Khongoroo", color: "bg-indigo-200", image: '/h3.jpeg' }
         ].map((item) => (
             <div key={item.id} className="bg-white p-3 shadow-lg transform rotate-2 hover:rotate-0 transition-transform duration-300">
                   <div className={`relative w-full h-46 ${item.color} mb-3 flex items-center justify-center`}>
